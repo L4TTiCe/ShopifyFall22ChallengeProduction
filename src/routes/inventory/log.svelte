@@ -53,22 +53,22 @@ Deletion log has {LogEntries.length} entries.
 		</tr>
 	</thead>
 	<tbody>
-		{#each LogEntries as item}
+		{#each LogEntries as entry}
 			<tr>
-				<td class="border border-slate-700 p-2 text-left">{item._id}</td>
-				<td class="border border-slate-700 p-2 text-left">{item.name}</td>
-				<td class="border border-slate-700 p-2 text-left">{item.description}</td>
-				<td class="border border-slate-700 p-2 text-left">{item.quantity}</td>
-				<td class="border border-slate-700 p-2 text-left">{item.created_on}</td>
-				<td class="border border-slate-700 p-2 text-left">{item.deletion_comment}</td>
+				<td class="border border-slate-700 p-2 text-left">{entry.item._id}</td>
+				<td class="border border-slate-700 p-2 text-left">{entry.item.name}</td>
+				<td class="border border-slate-700 p-2 text-left">{entry.item.description}</td>
+				<td class="border border-slate-700 p-2 text-left">{entry.item.quantity}</td>
+				<td class="border border-slate-700 p-2 text-left">{entry.item.created_on}</td>
+				<td class="border border-slate-700 p-2 text-left">{entry.deletion_comment}</td>
 				<td class="border border-slate-700 p-2 text-left"
-					>{item.deleted_on.toISOString().slice(0, 16)}</td
+					>{entry.deleted_on.toISOString().slice(0, 16)}</td
 				>
 				<td class="border border-slate-700 p-2 text-left">
 					<span
 						class="underline hover:no-underline hover:text-blue-800"
 						on:click={() => {
-							handleRestore(item._id);
+							handleRestore(entry.item._id);
 						}}>Restore</span
 					>
 				</td>
@@ -76,7 +76,7 @@ Deletion log has {LogEntries.length} entries.
 					<span
 						class="underline hover:no-underline hover:text-red-800"
 						on:click={() => {
-							handleDelete(item._id);
+							handleDelete(entry.item._id);
 						}}>Delete</span
 					>
 				</td>
