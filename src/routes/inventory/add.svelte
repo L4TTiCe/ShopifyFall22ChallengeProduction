@@ -5,6 +5,7 @@
 
 	let id = '';
 	let name = '';
+	let city = '';
 	let description = '';
 
 	let quantity = '';
@@ -13,7 +14,7 @@
 	let status_message = '';
 
 	function validateInventoryItem(item: Inventory): boolean {
-		if (item._id == '' || item.name == '') {
+		if (item._id == '' || item.name == '' || item.city == '') {
 			return false;
 		} else {
 			return true;
@@ -23,6 +24,7 @@
 	function resetData() {
 		id = '';
 		name = '';
+		city = '';
 		description = '';
 		quantity = '';
 		created_on = new Date().toISOString().slice(0, 16);
@@ -32,6 +34,7 @@
 		let inventoryitem: Inventory = {
 			_id: id,
 			name: name,
+			city: city,
 			description: description,
 			quantity: +quantity,
 			created_on: created_on
@@ -42,7 +45,7 @@
 			addInventory(inventoryitem);
 			resetData();
 		} else {
-			status_message = 'ID and name are required fields.';
+			status_message = 'ID, name and city are required fields.';
 		}
 	}
 </script>
@@ -52,6 +55,7 @@
 	<InventoryForm
 		bind:id
 		bind:name
+		bind:city
 		bind:description
 		bind:quantity
 		bind:created_on

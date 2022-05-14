@@ -1,6 +1,9 @@
 <script lang="ts">
-	export let name: string | undefined;
+	import { getWeatherDescription } from '$lib/services/openweather';
+
 	export let id: string;
+	export let name: string | undefined;
+	export let city: string;
 	export let description: string | undefined;
 	export let quantity: number | string | undefined;
 	export let created_on: string | undefined;
@@ -8,6 +11,14 @@
 	export let show_buttons = false;
 	export let handleUpdate: any = null;
 	export let handleDelete: any = null;
+
+	let weather = '';
+
+	async function populateWeather() {
+		weather = await getWeatherDescription(city);
+	}
+
+	populateWeather()
 </script>
 
 <!-- 
@@ -34,6 +45,12 @@
 	<ul class="pl-4">
 		<li class="underline hover:no-underline hover:text-blue-800">
 			<a href="/inventory/view/{id}">ID: {id}</a>
+		</li>
+		<li>
+			<span>City: {city}</span>
+		</li>
+		<li>
+			<span>Weather: {weather}</span>
 		</li>
 		<li>
 			<span>Description: {description}</span>

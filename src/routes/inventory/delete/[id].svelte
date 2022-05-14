@@ -10,6 +10,7 @@
 
 	let id = '';
 	let name = '';
+	let city = '';
 	let description = '';
 
 	let quantity = '';
@@ -21,6 +22,9 @@
 		id = inventoryItemMessage.item._id;
 		if (inventoryItemMessage.item.name) {
 			name = inventoryItemMessage.item.name;
+		}
+		if (inventoryItemMessage.item.city) {
+			city = inventoryItemMessage.item.city;
 		}
 		if (inventoryItemMessage.item.description) {
 			description = inventoryItemMessage.item.description;
@@ -49,7 +53,7 @@
 {#if inventoryItemMessage.status == Status.SUCCESS && inventoryItemMessage.item}
 	<form class="w-full max-w-lg mx-4">
 		<div class="flex flex-wrap -mx-3 mb-6">
-			<InventoryCard bind:id bind:name bind:description bind:quantity bind:created_on />
+			<InventoryCard bind:id bind:name bind:city bind:description bind:quantity bind:created_on />
 
 			<form class="w-full max-w-lg mx-4 my-4">
 				<div class="flex flex-wrap -mx-3 mb-6">

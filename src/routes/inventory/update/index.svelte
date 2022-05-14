@@ -21,6 +21,7 @@
 
 	let id = '';
 	let name = '';
+	let city = '';
 	let description = '';
 
 	let quantity = '';
@@ -44,6 +45,7 @@
 		let inventoryitem: Inventory = {
 			_id: id,
 			name: name,
+			city: city,
 			description: description,
 			quantity: +quantity,
 			created_on: created_on
@@ -63,6 +65,7 @@
 	function resetData() {
 		id = '';
 		name = '';
+		city = '';
 		description = '';
 		quantity = '';
 		created_on = new Date().toISOString().slice(0, 16);
@@ -74,6 +77,7 @@
 		if (selectedItemData.item) {
 			id = selectedItemData.item._id;
 			if (selectedItemData.item.name) name = selectedItemData.item.name;
+			if (selectedItemData.item.city) city = selectedItemData.item.city;
 			if (selectedItemData.item.description) description = selectedItemData.item.description;
 			if (selectedItemData.item.quantity) quantity = selectedItemData.item.quantity.toString();
 			if (selectedItemData.item.created_on) created_on = selectedItemData.item.created_on;
@@ -116,6 +120,7 @@
 		<InventoryForm
 			bind:id
 			bind:name
+			bind:city
 			bind:description
 			bind:quantity
 			bind:created_on

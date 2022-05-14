@@ -43,6 +43,7 @@ Deletion log has {LogEntries.length} entries.
 		<tr>
 			<th class="border border-slate-600 p-4 text-left">ID</th>
 			<th class="border border-slate-600 p-4 text-left">Name</th>
+			<th class="border border-slate-600 p-4 text-left">City</th>
 			<th class="border border-slate-600 p-4 text-left">Description</th>
 			<th class="border border-slate-600 p-4 text-left">Qty.</th>
 			<th class="border border-slate-600 p-4 text-left">Created on</th>
@@ -57,6 +58,7 @@ Deletion log has {LogEntries.length} entries.
 			<tr>
 				<td class="border border-slate-700 p-2 text-left">{entry.item._id}</td>
 				<td class="border border-slate-700 p-2 text-left">{entry.item.name}</td>
+				<td class="border border-slate-700 p-2 text-left">{entry.item.city}</td>
 				<td class="border border-slate-700 p-2 text-left">{entry.item.description}</td>
 				<td class="border border-slate-700 p-2 text-left">{entry.item.quantity}</td>
 				<td class="border border-slate-700 p-2 text-left">{entry.item.created_on}</td>

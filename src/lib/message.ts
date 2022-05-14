@@ -1,3 +1,4 @@
+import type { LatLong } from './dao/citiesDao';
 import type { Inventory } from './models/inventory';
 import type { Status } from './status';
 
@@ -9,10 +10,12 @@ export class Message {
 	status: Status;
 	message: string;
 	item?: Inventory;
+	coordinates?: LatLong;
 
-	constructor(status: Status, message: string, item?: Inventory) {
+	constructor(status: Status, message: string, item?: Inventory, coordinates?: LatLong) {
 		this.status = status;
 		this.message = message;
 		this.item = item;
+		this.coordinates = coordinates;
 	}
 }
