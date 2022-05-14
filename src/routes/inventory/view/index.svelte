@@ -13,7 +13,8 @@
 	import { getAllItems } from '$lib/dao/inventoryDao';
 	import type { Inventory } from '$lib/models/inventory';
 	import InventoryCard from '$lib/components/InventoryCard.svelte';
-	import { getWeatherDescription } from '$lib/services/openweather';
+	import { getCachedWeatherDescription } from '$lib/dao/weatherDao';
+	// import { getWeatherDescription } from '$lib/services/openweather';
 
 	export let inventoryItems: Inventory[];
 
@@ -60,7 +61,7 @@ Inventory has {inventoryItems.length} items.
 				<td class="border border-slate-700 p-2 text-left">{item._id}</td>
 				<td class="border border-slate-700 p-2 text-left">{item.name}</td>
 				<td class="border border-slate-700 p-2 text-left">{item.city}</td>
-				<td class="border border-slate-700 p-2 text-left">{#await getWeatherDescription(item.city) then value}{value}{/await}</td>
+				<td class="border border-slate-700 p-2 text-left">{#await getCachedWeatherDescription(item.city) then value}{value}{/await}</td>
 				<td class="border border-slate-700 p-2 text-left">{item.description}</td>
 				<td class="border border-slate-700 p-2 text-left">{item.quantity}</td>
 				<td class="border border-slate-700 p-2 text-left">{item.created_on}</td>

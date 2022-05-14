@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { getWeatherDescription } from '$lib/services/openweather';
+	import { getCachedWeatherDescription } from '$lib/dao/weatherDao';
+	// import { getWeatherDescription } from '$lib/services/openweather';
 
 	export let id: string;
 	export let name: string | undefined;
@@ -15,7 +16,7 @@
 	let weather = '';
 
 	async function populateWeather() {
-		weather = await getWeatherDescription(city);
+		weather = await getCachedWeatherDescription(city);
 	}
 
 	populateWeather()
