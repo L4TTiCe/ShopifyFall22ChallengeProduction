@@ -1,22 +1,16 @@
-# create-svelte
+# Fall 2022 - Shopify Production Engineer Intern Challenge
+## Inventory Management
+For more iformation about the TASK, refer to TASK.md.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
+### Requirements
+This repository requires
+- [Node.JS](https://nodejs.org/en/) LTS - 16
 
 If you're seeing this, you've probably already done this step. Congrats!
 
-```bash
-# create a new project in the current directory
-npm init svelte
+## Running the Application
 
-# create a new project in my-app
-npm init svelte my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've cloned the repository and installed dependencies with `npm install`, start a development server:
 
 ```bash
 npm run dev

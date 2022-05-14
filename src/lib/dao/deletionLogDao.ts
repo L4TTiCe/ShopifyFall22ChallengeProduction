@@ -22,7 +22,7 @@ const deletionLogDB: Map<string, DeletedInventory> = new Map();
 export function logDeletion(item: Inventory | undefined, deletion_comment: string): Message {
 	if (item) {
 		const LogEntry: DeletedInventory = {
-			...item,
+			item: item,
 			deleted_on: new Date(),
 			deletion_comment: deletion_comment
 		};
@@ -63,7 +63,7 @@ export function revertDeletionById(id: string): Message {
 		} else {
 			const itemToRestore = deletionLogDB.get(id);
 			if (itemToRestore) {
-				InventoryService.addInventory(itemToRestore);
+				InventoryService.addInventory(itemToRestore.item);
 				purgeLogById(id);
 				return new Message(Status.SUCCESS, 'ID restored');
 			}

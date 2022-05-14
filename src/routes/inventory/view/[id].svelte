@@ -25,6 +25,7 @@
 	<InventoryCard
 		id={inventoryItemMessage.item._id}
 		name={inventoryItemMessage.item.name}
+		city={inventoryItemMessage.item.city}
 		description={inventoryItemMessage.item.description}
 		quantity={inventoryItemMessage.item.quantity?.toString()}
 		created_on={inventoryItemMessage.item.created_on}

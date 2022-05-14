@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { v4 as uuidv4 } from 'uuid';
+	import { getAvailableCities } from '$lib/dao/citiesDao';
 
 	export let id: string;
 	export let name: string;
+	export let city: string;
 	export let description: string;
 	export let quantity: string;
 	export let created_on: string;
@@ -20,6 +22,8 @@
 	function generateID() {
 		id = uuidv4();
 	}
+
+	const availableCities: string[] = getAvailableCities();
 </script>
 <!-- 
 	@component
@@ -30,6 +34,7 @@
 	<InventoryForm
 		bind:id
 		bind:name
+		bind:city
 		bind:description
 		bind:quantity
 		bind:created_on
@@ -97,6 +102,36 @@
 			<p class="text-gray-600 text-xs italic">Your Item's Name</p>
 			{#if name == ''}
 				<p class="text-red-500 text-xs italic ">Consider filling out this field.</p>
+			{/if}
+		</div>
+	</div>
+	<div class="flex flex-wrap -mx-3 mb-6">
+		<div class="w-full px-3">
+			<label
+				class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+				for="grid-city"
+			>
+				City
+			</label>
+			<select
+				bind:value={city}
+				class="{!city
+					? 'border-red-500'
+					: 'border-gray-200'} block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+				id="grid-username"
+				placeholder="Choose City"
+			>
+				<option value={''} selected hidden disabled
+					>{availableCities.length == 0 ? 'No Cities' : 'Choose City'}</option
+				>
+				{#each availableCities as item}
+					<option value={item}>
+						{item}
+					</option>
+				{/each}
+			</select>
+			{#if city == ''}
+				<p class="text-red-500 text-xs italic ">Please fill out this field.</p>
 			{/if}
 		</div>
 	</div>

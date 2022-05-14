@@ -21,6 +21,7 @@
 
 	let id = '';
 	let name = '';
+	let city = '';
 	let description = '';
 
 	let quantity = '';
@@ -45,6 +46,7 @@
 	function resetData() {
 		id = '';
 		name = '';
+		city = '';
 		description = '';
 		quantity = '';
 		created_on = new Date().toISOString().slice(0, 16);
@@ -57,6 +59,7 @@
 		if (selectedItemData.item) {
 			id = selectedItemData.item._id;
 			if (selectedItemData.item.name) name = selectedItemData.item.name;
+			if (selectedItemData.item.city) city = selectedItemData.item.city;
 			if (selectedItemData.item.description) description = selectedItemData.item.description;
 			if (selectedItemData.item.quantity) quantity = selectedItemData.item.quantity.toString();
 			if (selectedItemData.item.created_on) created_on = selectedItemData.item.created_on;
@@ -96,7 +99,7 @@
 	</div>
 
 	{#if selected}
-		<InventoryCard bind:id bind:name bind:description bind:quantity bind:created_on />
+		<InventoryCard bind:id bind:name bind:city bind:description bind:quantity bind:created_on />
 
 		<form class="w-full max-w-lg mx-4 my-4">
 			<div class="flex flex-wrap -mx-3 mb-6">
