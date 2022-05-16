@@ -1,6 +1,6 @@
 # Fall 2022 - Shopify Production Engineer Intern Challenge
 ## Inventory Management
-For more iformation about the TASK, refer to TASK.md.
+For more iformation about the TASK, refer to [TASK.md](https://github.com/L4TTiCe/ShopifyFall22ChallengeProduction/blob/master/TASK.md).
 
 ### Requirements
 This repository requires
