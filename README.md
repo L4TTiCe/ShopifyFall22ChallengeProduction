@@ -6,8 +6,6 @@ For more iformation about the TASK, refer to [TASK.md](https://github.com/L4TTiC
 This repository requires
 - [Node.JS](https://nodejs.org/en/) LTS - 16
 
-If you're seeing this, you've probably already done this step. Congrats!
-
 ## Running the Application
 
 Once you've cloned the repository and installed dependencies with `npm install`, start a development server:
